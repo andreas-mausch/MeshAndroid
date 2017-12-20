@@ -17,10 +17,11 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
 
         ip.setText("10.0.0.1")
+        name.setText("MeshAndroid")
 
         start_mesh.setOnClickListener {
             try {
-                startMesh(ip.text.toString())
+                startMesh(ip.text.toString(), name.text.toString())
             } catch (e: IOException) {
                 makeText(this, e.message, LENGTH_LONG).show()
             }
@@ -29,13 +30,13 @@ class MainActivity : Activity() {
         }
     }
 
-    private fun startMesh(ip: String) {
+    private fun startMesh(ip: String, name: String) {
         runAsRoot("ifconfig wlan0 down")
         runAsRoot("echo \"/system/etc/wifi/bcmdhd_ibss.bin\" >> /sys/module/dhd/parameters/firmware_path")
         runAsRoot("echo \"/system/etc/wifi/nvram_net.txt\" >> /sys/module/dhd/parameters/nvram_path")
         runAsRoot("ifconfig wlan0 ${ip} netmask 255.255.0.0 up")
         runAsRoot("iw wlan0 set type ibss")
-        runAsRoot("iw wlan0 ibss join MeshAndroid 2412")
+        runAsRoot("iw wlan0 ibss join ${name} 2412")
     }
 
     private fun runAsRoot(command: String) {
