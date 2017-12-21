@@ -12,22 +12,40 @@
                   android:orientation="vertical"
                   android:gravity="center_horizontal"
                   android:layout_margin="40dp">
-        <EditText android:id="@+id/ip"
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:hint="@string/ip"
-                  android:inputType="number"
-                  android:digits="0123456789."/>
-        <EditText android:id="@+id/name"
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:hint="@string/name"/>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputEditText
+                    android:id="@+id/ip"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/ip"
+                    android:inputType="number"
+                    android:digits="0123456789."/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name"/>
+        </android.support.design.widget.TextInputLayout>
 
         <Button android:id="@+id/start_mesh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/start_mesh"
                 android:layout_marginTop="20dp"/>
+
+        <fragment android:id="@+id/wifi_status"
+                  class="de.neonew.meshandroid.WifiStatusFragment"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_marginTop="80dp"
+                  android:layout_marginStart="40dp"
+                  android:layout_marginEnd="40dp"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

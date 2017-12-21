@@ -1,7 +1,7 @@
 package de.neonew.meshandroid
 
-import android.app.Activity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.makeText
@@ -9,8 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.apache.commons.io.IOUtils
 import java.io.IOException
 
-
-class MainActivity : Activity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +39,11 @@ class MainActivity : Activity() {
     }
 
     private fun runAsRoot(command: String) {
-        val process = Runtime.getRuntime().exec(arrayOf("su", "-c", command))
+        runCommand(arrayOf("su", "-c", command))
+    }
+
+    private fun runCommand(command: Array<String>) {
+        val process = Runtime.getRuntime().exec(command)
         val returnValue = process.waitFor()
         val output = IOUtils.toString(process.inputStream)
         if (returnValue != 0) {

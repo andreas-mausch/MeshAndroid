@@ -3,4 +3,7 @@
     <string name="start_mesh">Start Mesh network</string>
     <string name="ip">IP address</string>
     <string name="name">Mesh WiFi name</string>
+    <string name="wifi_mode">Mode</string>
+    <string name="wifi_ssid">SSID</string>
+    <string name="wifi_frequency">Frequency</string>
 </resources>

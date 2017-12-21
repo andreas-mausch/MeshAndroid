@@ -36,6 +36,9 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile "com.android.support:design:$android.buildToolsVersion"
+    compile "com.android.support:appcompat-v7:$android.buildToolsVersion"
+
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.apache.directory.studio:org.apache.commons.io:2.4'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.10"
