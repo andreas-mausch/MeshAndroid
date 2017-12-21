@@ -2,11 +2,10 @@ package de.neonew.meshandroid
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.makeText
+import de.neonew.meshandroid.Runner.Companion.runAsRoot
 import kotlinx.android.synthetic.main.activity_main.*
-import org.apache.commons.io.IOUtils
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
@@ -23,9 +22,10 @@ class MainActivity : AppCompatActivity() {
                 startMesh(ip.text.toString(), name.text.toString())
             } catch (e: IOException) {
                 makeText(this, e.message, LENGTH_LONG).show()
+            } finally {
+                val wifi_status = fragmentManager.findFragmentById(R.id.wifi_status) as WifiStatusFragment
+                wifi_status.update()
             }
-
-            Log.i("MainActivity", "OK")
         }
     }
 
@@ -36,19 +36,6 @@ class MainActivity : AppCompatActivity() {
         runAsRoot("ifconfig wlan0 ${ip} netmask 255.255.0.0 up")
         runAsRoot("iw wlan0 set type ibss")
         runAsRoot("iw wlan0 ibss join ${name} 2412")
-    }
-
-    private fun runAsRoot(command: String) {
-        runCommand(arrayOf("su", "-c", command))
-    }
-
-    private fun runCommand(command: Array<String>) {
-        val process = Runtime.getRuntime().exec(command)
-        val returnValue = process.waitFor()
-        val output = IOUtils.toString(process.inputStream)
-        if (returnValue != 0) {
-            throw IllegalStateException("command failed: $command; ret: $returnValue; output: $output")
-        }
     }
 
     /**
