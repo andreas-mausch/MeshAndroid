@@ -1,4 +1,4 @@
-package de.neonew.meshandroid
+package de.neonew.mesh.android
 
 import junit.framework.Assert.assertEquals
 import org.junit.Test

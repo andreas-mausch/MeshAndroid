@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="de.neonew.meshandroid.MainActivity">
+        tools:context="de.neonew.mesh.android.MainActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="fill_parent"
@@ -40,7 +40,7 @@
                 android:layout_marginTop="20dp"/>
 
         <fragment android:id="@+id/wifi_status"
-                  class="de.neonew.meshandroid.WifiStatusFragment"
+                  class="de.neonew.mesh.android.WifiStatusFragment"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:layout_marginTop="80dp"

@@ -1,4 +1,4 @@
-package de.neonew.meshandroid
+package de.neonew.mesh.android
 
 class IwLink(val output: String) {
     fun getSsid(): String? = Regex("\\tSSID: (.+)").find(output)?.groupValues?.get(1)

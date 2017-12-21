@@ -1,4 +1,4 @@
-package de.neonew.meshandroid
+package de.neonew.mesh.android
 
 import org.apache.commons.io.IOUtils
 

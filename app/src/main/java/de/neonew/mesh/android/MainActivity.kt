@@ -1,10 +1,10 @@
-package de.neonew.meshandroid
+package de.neonew.mesh.android
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.makeText
-import de.neonew.meshandroid.Runner.Companion.runAsRoot
+import de.neonew.mesh.android.Runner.Companion.runAsRoot
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.IOException
 
