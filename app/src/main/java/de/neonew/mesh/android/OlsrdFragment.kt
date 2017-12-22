@@ -16,6 +16,13 @@ class OlsrdFragment : Fragment() {
         val olsrd_run = view.findViewById<Button>(R.id.olsrd_run)
         olsrd_run.setOnClickListener {
             Olsrd().run(context)
+            update()
+        }
+
+        val olsrd_kill = view.findViewById<Button>(R.id.olsrd_kill)
+        olsrd_kill.setOnClickListener {
+            Olsrd().kill(context)
+            update()
         }
 
         return view

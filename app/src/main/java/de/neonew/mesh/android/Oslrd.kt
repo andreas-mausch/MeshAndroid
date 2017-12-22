@@ -18,4 +18,8 @@ class Olsrd {
         val filename = Resource.getFilename(context, "olsrd")
         runAsRootInBackground(filename + " -i wlan0")
     }
+
+    fun kill(context: Context) {
+        runAsRoot("killall olsrd")
+    }
 }
