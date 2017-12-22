@@ -12,15 +12,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/olsrd"/>
+                android:text="@string/olsrd_running"/>
         <TextView
-                android:id="@+id/xolsrd"
+                android:id="@+id/olsrd_running"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
     </LinearLayout>
 
-    <Button android:id="@+id/xrun"
+    <Button android:id="@+id/olsrd_run"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/run_olsrd"

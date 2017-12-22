@@ -1,6 +1,8 @@
 package de.neonew.mesh.android
 
+import android.content.Context
 import de.neonew.mesh.android.Runner.Companion.runAsRoot
+import de.neonew.mesh.android.Runner.Companion.runAsRootInBackground
 
 class Olsrd {
 
@@ -10,5 +12,10 @@ class Olsrd {
         }
     }
 
-    // Resource(R.raw.olsrd).copy(applicationContext, "olsrd")
+    fun run(context: Context) {
+        Resource(R.raw.olsrd).copy(context, "olsrd")
+
+        val filename = Resource.getFilename(context, "olsrd")
+        runAsRootInBackground(filename + " -i wlan0")
+    }
 }

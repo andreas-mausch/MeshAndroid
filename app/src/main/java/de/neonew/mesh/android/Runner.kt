@@ -5,8 +5,6 @@ import org.apache.commons.io.IOUtils
 class Runner {
 
     companion object {
-        fun runAsRoot(command: String): String = runCommand(arrayOf("su", "-c", command))
-
         fun runCommand(command: Array<String>): String {
             val process = Runtime.getRuntime().exec(command)
             val returnValue = process.waitFor()
@@ -16,5 +14,13 @@ class Runner {
             }
             return output
         }
+
+        fun runAsRoot(command: String): String = runCommand(arrayOf("su", "-c", command))
+
+        fun runInBackground(command: Array<String>) {
+            Runtime.getRuntime().exec(command)
+        }
+
+        fun runAsRootInBackground(command: String) = runInBackground(arrayOf("su", "-c", command))
     }
 }

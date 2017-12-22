@@ -6,7 +6,7 @@ import java.io.File
 
 class Resource(val resourceId: Int) {
     fun copy(context: Context, filename: String) {
-        val absoluteFilename = context.filesDir.canonicalPath + "/" + filename
+        val absoluteFilename = getFilename(context, filename)
         val file = File(absoluteFilename)
 
         if (file.exists() && !file.delete()) {
@@ -20,5 +20,9 @@ class Resource(val resourceId: Int) {
         }
 
         runCommand(arrayOf("chmod", "+x", absoluteFilename))
+    }
+
+    companion object {
+        fun getFilename(context: Context, filename: String) = context.filesDir.canonicalPath + "/" + filename
     }
 }
