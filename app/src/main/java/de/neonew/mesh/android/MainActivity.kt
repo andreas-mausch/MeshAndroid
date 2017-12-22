@@ -2,6 +2,7 @@ package de.neonew.mesh.android
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.makeText
 import de.neonew.mesh.android.Runner.Companion.runAsRoot
@@ -13,6 +14,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        window.setSoftInputMode(SOFT_INPUT_STATE_HIDDEN);
 
         ip.setText("10.0.0.1")
         name.setText("MeshAndroid")
