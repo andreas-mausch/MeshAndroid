@@ -5,7 +5,7 @@ import de.neonew.mesh.android.Runner.Companion.runCommand
 import java.io.File
 
 class Resource(val resourceId: Int) {
-    fun copy(context: Context, filename: String) {
+    fun copy(context: Context, filename: String, executable: Boolean) {
         val absoluteFilename = getFilename(context, filename)
         val file = File(absoluteFilename)
 
@@ -19,10 +19,13 @@ class Resource(val resourceId: Int) {
             }
         }
 
-        runCommand(arrayOf("chmod", "+x", absoluteFilename))
+        if (executable) {
+            runCommand(arrayOf("chmod", "+x", absoluteFilename))
+        }
     }
 
     companion object {
-        fun getFilename(context: Context, filename: String) = context.filesDir.canonicalPath + "/" + filename
+        fun getDirectory(context: Context) = context.filesDir.canonicalPath
+        fun getFilename(context: Context, filename: String) = getDirectory(context) + "/" + filename
     }
 }

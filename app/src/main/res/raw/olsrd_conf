@@ -1,0 +1,22 @@
+DebugLevel 1
+
+LoadPlugin "./olsrd_jsoninfo.so.1.1"
+{
+  # <generic info plugin configuration>
+
+  # The first line of the specified file will be read. If properly read, then
+  # this line will be included in the JSON reply as the value of the 'uuid'
+  # field.
+  # Default: <not set>
+  # PlParam "uuidfile" "uuid.txt"
+
+  # When set to 'true' or 'yes' then the output will be pretty-printed
+  # (multi-line indented). Otherwise the output will not contain
+  # line-breaks and indentation.
+  # Default: false
+  # PlParam "pretty" "false"
+}
+
+Interface "wlan0"
+{
+}

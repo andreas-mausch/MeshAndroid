@@ -1,6 +1,7 @@
 package de.neonew.mesh.android
 
 import android.content.Context
+import de.neonew.mesh.android.Resource.Companion.getDirectory
 import de.neonew.mesh.android.Runner.Companion.runAsRoot
 import de.neonew.mesh.android.Runner.Companion.runAsRootInBackground
 
@@ -13,13 +14,12 @@ class Olsrd {
     }
 
     fun run(context: Context) {
-        Resource(R.raw.olsrd).copy(context, "olsrd")
+        Resource(R.raw.olsrd).copy(context, "olsrd", true)
+        Resource(R.raw.olsrd_jsoninfo).copy(context, "olsrd_jsoninfo.so.1.1", true)
+        Resource(R.raw.olsrd_conf).copy(context, "olsrd.conf", false)
 
-        val filename = Resource.getFilename(context, "olsrd")
-        runAsRootInBackground(filename + " -i wlan0")
+        runAsRootInBackground("./olsrd -f olsrd.conf", getDirectory(context))
     }
 
-    fun kill(context: Context) {
-        runAsRoot("killall olsrd")
-    }
+    fun kill() = runAsRoot("killall olsrd")
 }
