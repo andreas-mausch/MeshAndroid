@@ -1,6 +1,9 @@
 package de.neonew.mesh.android
 
 import android.content.Context
+import com.github.kittinunf.fuel.android.extension.responseJson
+import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.result.Result
 import de.neonew.mesh.android.Resource.Companion.getDirectory
 import de.neonew.mesh.android.Runner.Companion.runAsRoot
 import de.neonew.mesh.android.Runner.Companion.runAsRootInBackground
@@ -10,6 +13,20 @@ class Olsrd {
     companion object {
         fun isRunning(): Boolean {
             return runAsRoot("pidof olsrd").isNotEmpty()
+        }
+
+        fun getNeighbors(callback: (List<String>) -> Unit) {
+            "http://localhost:9090/all".httpGet().responseJson { request, response, result ->
+                when (result) {
+                    is Result.Failure -> {
+                        callback(emptyList())
+                    }
+                    is Result.Success -> {
+                        val jsonArray = result.get().obj().getJSONArray("neighbors")
+                        callback((0 until jsonArray.length()).asSequence().map { jsonArray.getJSONObject(0).get("ipAddress").toString() }.toList())
+                    }
+                }
+            }
         }
     }
 

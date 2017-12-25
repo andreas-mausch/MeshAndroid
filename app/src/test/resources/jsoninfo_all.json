@@ -3,7 +3,20 @@
   "systemTime": 1514215900,
   "timeSinceStartup": 31380,
   "configurationChecksum": "dd46a2f9",
-  "neighbors": [],
+  "neighbors": [
+    {
+      "ipAddress": "10.0.0.1",
+      "symmetric": true,
+      "willingness": 3,
+      "isMultiPointRelay": false,
+      "wasMultiPointRelay": false,
+      "multiPointRelaySelector": false,
+      "skip": false,
+      "neighbor2nocov": 0,
+      "linkcount": 1,
+      "twoHopNeighborCount": 0
+    }
+  ],
   "links": [],
   "routes": [],
   "hna": [],

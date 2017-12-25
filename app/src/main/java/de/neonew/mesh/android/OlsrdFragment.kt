@@ -42,5 +42,8 @@ class OlsrdFragment : Fragment() {
 
     fun update() {
         olsrd_running.text = Olsrd.isRunning().toString()
+        Olsrd.getNeighbors {
+            olsrd_neighbors.text = it.joinToString("\n")
+        }
     }
 }
