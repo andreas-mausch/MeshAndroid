@@ -9,5 +9,6 @@
     <string name="ie6">This is a test App!\n\nBest (and only) viewed on Samsung Galaxy S4 with LineageOS 14.1 in 320x240. ;)</string>
     <string name="olsrd_running">OLSRD running</string>
     <string name="run_olsrd">Run OLSRD</string>
-    <string name="kill_olsrd">Kill OLSRD</string>
+    <string name="kill_olsrd">Kill</string>
+    <string name="force_kill_olsrd">Force Kill</string>
 </resources>

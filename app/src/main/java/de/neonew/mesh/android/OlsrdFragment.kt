@@ -25,6 +25,12 @@ class OlsrdFragment : Fragment() {
             update()
         }
 
+        val olsrd_force_kill = view.findViewById<Button>(R.id.olsrd_force_kill)
+        olsrd_force_kill.setOnClickListener {
+            Olsrd().forceKill()
+            update()
+        }
+
         return view
     }
 

@@ -22,4 +22,5 @@ class Olsrd {
     }
 
     fun kill() = runAsRoot("killall olsrd")
+    fun forceKill() = runAsRoot("killall -9 olsrd")
 }

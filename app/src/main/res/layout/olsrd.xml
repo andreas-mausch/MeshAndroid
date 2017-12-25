@@ -32,6 +32,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/kill_olsrd"/>
+        <Button android:id="@+id/olsrd_force_kill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/force_kill_olsrd"/>
     </LinearLayout>
 
 </LinearLayout>

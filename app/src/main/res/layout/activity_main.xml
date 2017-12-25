@@ -57,17 +57,13 @@
                           class="de.neonew.mesh.android.WifiStatusFragment"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:layout_marginTop="20dp"
-                          android:layout_marginStart="40dp"
-                          android:layout_marginEnd="40dp"/>
+                          android:layout_marginTop="20dp"/>
 
                 <fragment android:id="@+id/olsrd"
                           class="de.neonew.mesh.android.OlsrdFragment"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:layout_marginTop="20dp"
-                          android:layout_marginStart="40dp"
-                          android:layout_marginEnd="40dp"/>
+                          android:layout_marginTop="20dp"/>
             </LinearLayout>
         </LinearLayout>
 
