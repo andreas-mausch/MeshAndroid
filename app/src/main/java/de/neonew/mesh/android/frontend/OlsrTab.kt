@@ -6,14 +6,17 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import de.neonew.mesh.android.Olsrd
 import de.neonew.mesh.android.R
 import kotlinx.android.synthetic.main.olsr_tab.*
 import kotlinx.android.synthetic.main.olsr_tab.view.*
 
+
 class OlsrTab : Fragment() {
 
-    var handler = Handler()
+    private var handler = Handler()
+    private lateinit var neighborsAdapter: ArrayAdapter<String>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -34,6 +37,9 @@ class OlsrTab : Fragment() {
             update()
         }
 
+        neighborsAdapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, emptyList<String>().toMutableList())
+        view.olsrd_neighbors.adapter = neighborsAdapter
+
         handler.post(updateRunnable)
 
         return view
@@ -53,7 +59,9 @@ class OlsrTab : Fragment() {
     fun update() {
         olsrd_running.text = Olsrd.isRunning().toString()
         Olsrd.getNeighbors {
-            olsrd_neighbors.text = it.joinToString("\n")
+            neighborsAdapter.clear()
+            neighborsAdapter.addAll(it)
+            neighborsAdapter.notifyDataSetChanged()
         }
     }
 
