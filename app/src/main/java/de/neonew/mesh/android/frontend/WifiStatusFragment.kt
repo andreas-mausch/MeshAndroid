@@ -1,10 +1,14 @@
-package de.neonew.mesh.android
+package de.neonew.mesh.android.frontend
 
-import android.app.Fragment
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import de.neonew.mesh.android.Ifconfig
+import de.neonew.mesh.android.IwInfo
+import de.neonew.mesh.android.IwLink
+import de.neonew.mesh.android.R
 import de.neonew.mesh.android.Runner.Companion.runAsRoot
 import kotlinx.android.synthetic.main.wifi_status.*
 

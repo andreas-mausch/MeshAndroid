@@ -38,6 +38,7 @@ dependencies {
     })
     compile "com.android.support:design:$android.buildToolsVersion"
     compile "com.android.support:appcompat-v7:$android.buildToolsVersion"
+    compile "com.android.support:support-v13:$android.buildToolsVersion"
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.apache.directory.studio:org.apache.commons.io:2.4'

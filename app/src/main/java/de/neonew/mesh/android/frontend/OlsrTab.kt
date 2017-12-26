@@ -1,36 +1,35 @@
-package de.neonew.mesh.android
+package de.neonew.mesh.android.frontend
 
-import android.app.Fragment
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import kotlinx.android.synthetic.main.olsrd.*
+import de.neonew.mesh.android.Olsrd
+import de.neonew.mesh.android.R
+import kotlinx.android.synthetic.main.olsr_tab.*
+import kotlinx.android.synthetic.main.olsr_tab.view.*
 
-class OlsrdFragment : Fragment() {
+class OlsrTab : Fragment() {
 
     var handler = Handler()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        val view = inflater.inflate(R.layout.olsrd, container, false)
+        val view = inflater.inflate(R.layout.olsr_tab, container, false)
 
-        val olsrd_run = view.findViewById<Button>(R.id.olsrd_run)
-        olsrd_run.setOnClickListener {
+        view.olsrd_run.setOnClickListener {
             Olsrd().run(context)
             update()
         }
 
-        val olsrd_kill = view.findViewById<Button>(R.id.olsrd_kill)
-        olsrd_kill.setOnClickListener {
+        view.olsrd_kill.setOnClickListener {
             Olsrd().kill()
             update()
         }
 
-        val olsrd_force_kill = view.findViewById<Button>(R.id.olsrd_force_kill)
-        olsrd_force_kill.setOnClickListener {
+        view.olsrd_force_kill.setOnClickListener {
             Olsrd().forceKill()
             update()
         }
