@@ -23,7 +23,7 @@ class Olsrd {
                     }
                     is Result.Success -> {
                         val jsonArray = result.get().obj().getJSONArray("neighbors")
-                        callback((0 until jsonArray.length()).asSequence().map { jsonArray.getJSONObject(0).get("ipAddress").toString() }.toList())
+                        callback((0 until jsonArray.length()).asSequence().map { jsonArray.getJSONObject(it).get("ipAddress").toString() }.toList())
                     }
                 }
             }
