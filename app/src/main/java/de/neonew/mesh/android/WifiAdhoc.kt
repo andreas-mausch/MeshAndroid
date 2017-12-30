@@ -10,7 +10,7 @@ class WifiAdhoc {
             runAsRoot("echo \"/system/etc/wifi/nvram_net.txt\" >> /sys/module/dhd/parameters/nvram_path")
             runAsRoot("ifconfig wlan0 ${ip} netmask 255.255.0.0 up")
             runAsRoot("iw wlan0 set type ibss")
-            runAsRoot("iw wlan0 ibss join ${name} 2412 00:11:22:33:44:55")
+            runAsRoot("iw wlan0 ibss join ${name} 2412 02:11:22:33:44:55")
         }
     }
 }
