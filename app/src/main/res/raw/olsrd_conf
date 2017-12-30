@@ -1,4 +1,5 @@
 DebugLevel 1
+RtTable 255
 
 LoadPlugin "./olsrd_jsoninfo.so.1.1"
 {
