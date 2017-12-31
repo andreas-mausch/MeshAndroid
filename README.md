@@ -28,7 +28,7 @@ They are available in LineageOS 14.1 for jftlexx.
 
 So if you own a S4, flash LineageOS, install su and you should be ready to run this app.
 
-If you own a similar phone (I've tested the i9506 successfully) or a phone with the same bcmdhd driver it might also work.
+If you own a similar phone (I've tested the i9506 and the Samsung Note 3 (SM-N9005) successfully) or a phone with the same bcmdhd driver it might also work.
 
 ## WiFi Ad-Hoc
 
