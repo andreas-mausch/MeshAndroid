@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN
 import de.neonew.mesh.android.R
+import de.neonew.mesh.android.WifiAdhoc
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -16,10 +17,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        window.setSoftInputMode(SOFT_INPUT_STATE_HIDDEN);
+        window.setSoftInputMode(SOFT_INPUT_STATE_HIDDEN)
+
+        compatibility_check.text = getString(when (runCompatiblityCheck()) {
+            true -> R.string.compatibility_check_success
+            false -> R.string.compatibility_check_failure
+        })
 
         pager.adapter = TabPagerAdapter(supportFragmentManager)
         tab_layout.setupWithViewPager(pager)
+    }
+
+    private fun runCompatiblityCheck(): Boolean {
+        return WifiAdhoc.driverExists()
     }
 
     /**

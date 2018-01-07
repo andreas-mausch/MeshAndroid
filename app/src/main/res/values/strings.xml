@@ -6,10 +6,11 @@
     <string name="wifi_mode">Mode</string>
     <string name="wifi_ssid">SSID</string>
     <string name="wifi_frequency">Frequency</string>
-    <string name="disclaimer">This is a test App!\n\nBest (and only) viewed on Samsung Galaxy S4 with LineageOS 14.1.</string>
     <string name="olsrd_running">OLSRD running</string>
     <string name="olsrd_neighbors">Neighbors</string>
     <string name="run_olsrd">Run OLSRD</string>
     <string name="kill_olsrd">Kill</string>
     <string name="force_kill_olsrd">Force Kill</string>
+    <string name="compatibility_check_success">Your phone works with MeshAndroid!</string>
+    <string name="compatibility_check_failure">Sorry, but your phone is not supported. :(</string>
 </resources>
