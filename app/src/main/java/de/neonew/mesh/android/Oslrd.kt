@@ -33,6 +33,7 @@ class Olsrd {
     fun run(context: Context) {
         Resource(R.raw.olsrd).copy(context, "olsrd", true)
         Resource(R.raw.olsrd_jsoninfo).copy(context, "olsrd_jsoninfo.so.1.1", true)
+        Resource(R.raw.olsrd_watchdog).copy(context, "olsrd_watchdog.so.0.1", true)
         Resource(R.raw.olsrd_conf).copy(context, "olsrd.conf", false)
 
         runAsRootInBackground("./olsrd -f olsrd.conf", getDirectory(context))

@@ -18,6 +18,12 @@ LoadPlugin "./olsrd_jsoninfo.so.1.1"
   # PlParam "pretty" "false"
 }
 
+LoadPlugin "./olsrd_watchdog.so.0.1"
+{
+  PlParam "interval" "30"
+  PlParam "file" "./olsrd.watchdog"
+}
+
 Interface "wlan0"
 {
 }
