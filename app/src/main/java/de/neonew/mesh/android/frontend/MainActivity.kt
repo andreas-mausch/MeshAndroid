@@ -22,20 +22,8 @@ class MainActivity : AppCompatActivity() {
         window.setSoftInputMode(SOFT_INPUT_STATE_HIDDEN)
 
         when (runCompatiblityCheck()) {
-            true -> {
-                compatibility_check.text = getString(R.string.compatibility_check_success)
-
-                val drawable = ContextCompat.getDrawable(this, R.drawable.ic_check_circle)
-                drawable.setColorFilter(ContextCompat.getColor(this, R.color.success), PorterDuff.Mode.MULTIPLY)
-                compatibility_check.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
-            }
-            false -> {
-                compatibility_check.text = getString(R.string.compatibility_check_failure)
-
-                val drawable = ContextCompat.getDrawable(this, R.drawable.ic_warn)
-                drawable.setColorFilter(ContextCompat.getColor(this, R.color.failure), PorterDuff.Mode.MULTIPLY)
-                compatibility_check.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
-            }
+            true -> setCompatiblity(R.string.compatibility_check_success, R.drawable.ic_check_circle, R.color.success)
+            false -> setCompatiblity(R.string.compatibility_check_failure, R.drawable.ic_warn, R.color.failure)
         }
 
         pager.adapter = TabPagerAdapter(supportFragmentManager)
@@ -44,6 +32,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun runCompatiblityCheck(): Boolean {
         return WifiAdhoc.driverExists()
+    }
+
+    private fun setCompatiblity(text: Int, icon: Int, color: Int) {
+        compatibility_check.text = getString(text)
+
+        val drawable = ContextCompat.getDrawable(this, icon)
+        drawable.setColorFilter(ContextCompat.getColor(this, color), PorterDuff.Mode.MULTIPLY)
+        compatibility_check.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
     }
 
     /**
