@@ -11,6 +11,6 @@
     <string name="run_olsrd">Run OLSRD</string>
     <string name="kill_olsrd">Kill</string>
     <string name="force_kill_olsrd">Force Kill</string>
-    <string name="compatibility_check_success">Your phone works with MeshAndroid!</string>
+    <string name="compatibility_check_success">Your phone is compatible with MeshAndroid.</string>
     <string name="compatibility_check_failure">Sorry, but your phone is not supported. :(</string>
 </resources>

@@ -1,9 +1,11 @@
 package de.neonew.mesh.android.frontend
 
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN
 import de.neonew.mesh.android.R
@@ -19,10 +21,22 @@ class MainActivity : AppCompatActivity() {
 
         window.setSoftInputMode(SOFT_INPUT_STATE_HIDDEN)
 
-        compatibility_check.text = getString(when (runCompatiblityCheck()) {
-            true -> R.string.compatibility_check_success
-            false -> R.string.compatibility_check_failure
-        })
+        when (runCompatiblityCheck()) {
+            true -> {
+                compatibility_check.text = getString(R.string.compatibility_check_success)
+
+                val drawable = ContextCompat.getDrawable(this, R.drawable.ic_check_circle)
+                drawable.setColorFilter(ContextCompat.getColor(this, R.color.success), PorterDuff.Mode.MULTIPLY)
+                compatibility_check.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
+            }
+            false -> {
+                compatibility_check.text = getString(R.string.compatibility_check_failure)
+
+                val drawable = ContextCompat.getDrawable(this, R.drawable.ic_warn)
+                drawable.setColorFilter(ContextCompat.getColor(this, R.color.failure), PorterDuff.Mode.MULTIPLY)
+                compatibility_check.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
+            }
+        }
 
         pager.adapter = TabPagerAdapter(supportFragmentManager)
         tab_layout.setupWithViewPager(pager)
