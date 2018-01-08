@@ -1,4 +1,4 @@
-package de.neonew.mesh.android.frontend
+package de.neonew.mesh.android.ui
 
 import android.graphics.PorterDuff
 import android.os.Bundle

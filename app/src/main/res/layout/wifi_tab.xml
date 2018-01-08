@@ -33,7 +33,7 @@
             android:layout_marginTop="20dp"/>
 
     <fragment android:id="@+id/wifi_status"
-              class="de.neonew.mesh.android.frontend.WifiStatusFragment"
+              class="de.neonew.mesh.android.ui.WifiStatusFragment"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginTop="20dp"/>

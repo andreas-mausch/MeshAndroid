@@ -1,4 +1,4 @@
-package de.neonew.mesh.android.frontend
+package de.neonew.mesh.android.ui
 
 import android.os.Bundle
 import android.os.Handler
