@@ -9,19 +9,22 @@ import android.widget.Toast
 import de.neonew.mesh.android.R
 import de.neonew.mesh.android.WifiAdhoc.Companion.startMesh
 import kotlinx.android.synthetic.main.wifi_tab.*
-import kotlinx.android.synthetic.main.wifi_tab.view.*
 import java.io.IOException
 
 class WifiTab : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        val view = inflater.inflate(R.layout.wifi_tab, container, false)
+        return inflater.inflate(R.layout.wifi_tab, container, false)
+    }
 
-        view.ip.setText("10.0.0.1")
-        view.name.setText("MeshAndroid")
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        view.start_mesh.setOnClickListener {
+        ip.setText("10.0.0.1")
+        name.setText("MeshAndroid")
+
+        start_mesh.setOnClickListener {
             try {
                 startMesh(ip.text.toString(), name.text.toString())
             } catch (e: IOException) {
@@ -31,7 +34,5 @@ class WifiTab : Fragment() {
                 wifi_status.update()
             }
         }
-
-        return view
     }
 }
