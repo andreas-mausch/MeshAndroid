@@ -77,5 +77,6 @@ class IfconfigTest {
     fun ifconfig() {
         val ifconfig = Ifconfig(output)
         assertEquals("10.0.0.1", ifconfig.getIp())
+        assertEquals("255.255.0.0", ifconfig.getMask())
     }
 }

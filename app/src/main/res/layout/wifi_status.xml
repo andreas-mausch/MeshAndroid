@@ -4,64 +4,40 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/wifi_mode"/>
-        <TextView
-                android:id="@+id/mode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-    </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/wifi_ssid"/>
-        <TextView
-                android:id="@+id/ssid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-    </LinearLayout>
+    <TableLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:stretchColumns="1"
+                 android:layout_margin="20dp">
+        <TableRow>
+            <TextView android:text="@string/wifi_mode"/>
+            <TextView android:id="@+id/mode"
+                      android:gravity="end"/>
+        </TableRow>
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/wifi_frequency"/>
-        <TextView
-                android:id="@+id/frequency"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-    </LinearLayout>
+        <TableRow>
+            <TextView android:text="@string/wifi_ssid"/>
+            <TextView android:id="@+id/ssid"
+                      android:gravity="end"/>
+        </TableRow>
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/wifi_ip"/>
-        <TextView
-                android:id="@+id/ip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-    </LinearLayout>
+        <TableRow>
+            <TextView android:text="@string/wifi_frequency"/>
+            <TextView android:id="@+id/frequency"
+                      android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView android:text="@string/wifi_ip"/>
+            <TextView android:id="@+id/ip"
+                      android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView android:text="@string/wifi_subnetmask"/>
+            <TextView android:id="@+id/subnetmask"
+                      android:gravity="end"/>
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

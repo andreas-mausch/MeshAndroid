@@ -11,4 +11,5 @@ class IwInfo(val output: String) {
 
 class Ifconfig(val output: String) {
     fun getIp(): String? = Regex("addr:([0-9.]*)").find(output)?.groupValues?.get(1)
+    fun getMask(): String? = Regex(" Mask:([0-9.]*)").find(output)?.groupValues?.get(1)
 }

@@ -33,5 +33,6 @@ class WifiStatusFragment : Fragment() {
         ssid.text = iwLink.getSsid()
         frequency.text = iwLink.getFrequency()
         ip.text = ifconfig.getIp()
+        subnetmask.text = ifconfig.getMask()
     }
 }
