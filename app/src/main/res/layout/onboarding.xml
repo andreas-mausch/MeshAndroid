@@ -13,7 +13,7 @@
               android:gravity="center"
               android:layout_margin="40dp"/>
 
-    <android.support.v4.view.ViewPager
+    <de.neonew.mesh.android.ui.onboarding.NonSwipeableViewPager
             android:id="@+id/onboarding_pager"
             android:padding="20dp"
             android:layout_width="match_parent"
