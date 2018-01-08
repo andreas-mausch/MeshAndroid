@@ -20,7 +20,7 @@
     </string>
     <string name="onboarding_root_check">Check root access</string>
     <string name="onboarding_root_success">Success</string>
-    <string name="onboarding_root_error">Error</string>
+    <string name="onboarding_root_error">Error: %s</string>
     <string name="onboarding_settings">In order to create a connection to other devices successfully,\n\n
         - the network name, frequency and BSSID on all devices must be the same\n
         - the IP address must be unique for each device\n\n

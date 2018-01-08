@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import de.neonew.mesh.android.R
 import de.neonew.mesh.android.Runner
 import kotlinx.android.synthetic.main.onboarding_root_access.*
+import java.io.IOException
 
 class RootAccessFragment : Fragment() {
 
@@ -27,11 +28,17 @@ class RootAccessFragment : Fragment() {
                 root_result.setTextColor(ContextCompat.getColor(activity, R.color.success))
 
                 onboardingActivity().enableNextPage(true)
-            } catch (e: IllegalStateException) {
-                root_result.text = getString(R.string.onboarding_root_error)
-                root_result.setTextColor(ContextCompat.getColor(activity, R.color.failure))
+            } catch (e: Exception) {
+                when (e) {
+                    is IllegalStateException,
+                    is IOException -> {
+                        root_result.text = getString(R.string.onboarding_root_error, e.message)
+                        root_result.setTextColor(ContextCompat.getColor(activity, R.color.failure))
 
-                onboardingActivity().enableNextPage(false)
+                        onboardingActivity().enableNextPage(false)
+                    }
+                    else -> throw e
+                }
             }
         }
     }
