@@ -2,9 +2,9 @@ package de.neonew.mesh.android.ui.onboarding
 
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.support.v4.app.FragmentActivity
 import de.neonew.mesh.android.R
+import de.neonew.mesh.android.Settings
 import de.neonew.mesh.android.ui.FragmentPage
 import de.neonew.mesh.android.ui.FragmentPagerAdapter
 import de.neonew.mesh.android.ui.MainActivity
@@ -16,7 +16,8 @@ class OnboardingActivity : FragmentActivity() {
     private val pages: List<FragmentPage> = listOf(
             FragmentPage("Welcome", { WelcomeFragment() }),
             FragmentPage("Access", { RootAccessFragment() }),
-            FragmentPage("Compatibility", { CompatibilityFragment() }))
+            FragmentPage("Compatibility", { CompatibilityFragment() }),
+            FragmentPage("Settings", { SettingsFragment() }))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +28,7 @@ class OnboardingActivity : FragmentActivity() {
 
         onboarding_next.setOnClickListener {
             if (onboarding_pager.currentItem == pages.size - 1) {
-                val sharedPreferencesEditor = PreferenceManager.getDefaultSharedPreferences(applicationContext).edit()
-                sharedPreferencesEditor.putBoolean(ONBOARDING_COMPLETED, true)
-                sharedPreferencesEditor.apply()
+                Settings.onboardingCompleted(applicationContext)
 
                 finish()
                 startActivity(Intent(this, MainActivity::class.java))
@@ -52,9 +51,5 @@ class OnboardingActivity : FragmentActivity() {
         })
 
         onboarding_pager.currentItem = index
-    }
-
-    companion object {
-        val ONBOARDING_COMPLETED = "onboardingCompleted"
     }
 }

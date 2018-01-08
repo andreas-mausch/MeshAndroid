@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:gravity="center_horizontal">
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/onboarding_settings"/>
+
+    <TableLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:stretchColumns="1"
+                 android:layout_margin="20dp">
+        <TableRow>
+            <TextView android:text="@string/wifi_ssid"/>
+            <TextView android:id="@+id/onboarding_settings_ssid"
+                      android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView android:text="@string/wifi_frequency"/>
+            <TextView android:id="@+id/onboarding_settings_frequency"
+                      android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView android:text="@string/wifi_bssid"/>
+            <TextView android:id="@+id/onboarding_settings_bssid"
+                      android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView android:text="@string/wifi_ip"/>
+            <TextView android:id="@+id/onboarding_settings_ip"
+                      android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView android:text="@string/wifi_subnetmask"/>
+            <TextView android:id="@+id/onboarding_settings_subnetmask"
+                      android:gravity="end"/>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

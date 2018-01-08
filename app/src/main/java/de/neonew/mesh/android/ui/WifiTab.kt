@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import de.neonew.mesh.android.R
+import de.neonew.mesh.android.Settings
 import de.neonew.mesh.android.WifiAdhoc.Companion.startMesh
 import kotlinx.android.synthetic.main.wifi_tab.*
 import java.io.IOException
@@ -21,12 +22,9 @@ class WifiTab : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ip.setText("10.0.0.1")
-        name.setText("MeshAndroid")
-
         start_mesh.setOnClickListener {
             try {
-                startMesh(ip.text.toString(), name.text.toString())
+                startMesh(Settings.getSsid(context), Settings.getFrequency(context), Settings.getBssid(context), Settings.getIP(context), Settings.getSubnetmask(context))
             } catch (e: IOException) {
                 Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
             } finally {

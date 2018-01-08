@@ -5,27 +5,6 @@
               android:orientation="vertical"
               android:gravity="center_horizontal">
 
-    <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <android.support.design.widget.TextInputEditText
-                android:id="@+id/ip"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/ip"
-                android:inputType="number"
-                android:digits="0123456789."/>
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <android.support.design.widget.TextInputEditText
-                android:id="@+id/name"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/name"/>
-    </android.support.design.widget.TextInputLayout>
-
     <Button android:id="@+id/start_mesh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">Mesh</string>
     <string name="start_mesh">Start Mesh network</string>
-    <string name="ip">IP address</string>
-    <string name="name">Mesh WiFi name</string>
     <string name="wifi_mode">Mode</string>
     <string name="wifi_ssid">SSID</string>
     <string name="wifi_frequency">Frequency</string>
+    <string name="wifi_bssid">BSSID</string>
+    <string name="wifi_ip">IP address</string>
+    <string name="wifi_subnetmask">Net mask</string>
     <string name="olsrd_running">OLSRD running</string>
     <string name="olsrd_neighbors">Neighbors</string>
     <string name="run_olsrd">Run OLSRD</string>
@@ -20,6 +21,11 @@
     <string name="onboarding_root_check">Check root access</string>
     <string name="onboarding_root_success">Success</string>
     <string name="onboarding_root_error">Error</string>
+    <string name="onboarding_settings">In order to create a connection to other devices successfully,\n\n
+        - the network name, frequency and BSSID on all devices must be the same\n
+        - the IP address must be unique for each device\n\n
+        We tried to generate good default values below, you can change them on the settings page if needed.
+    </string>
     <string name="next"><![CDATA[Next >]]></string>
     <string name="done">Done</string>
 </resources>

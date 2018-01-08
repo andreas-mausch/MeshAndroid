@@ -2,12 +2,11 @@ package de.neonew.mesh.android.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN
 import de.neonew.mesh.android.R
+import de.neonew.mesh.android.Settings
 import de.neonew.mesh.android.ui.onboarding.OnboardingActivity
-import de.neonew.mesh.android.ui.onboarding.OnboardingActivity.Companion.ONBOARDING_COMPLETED
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,8 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        if (!sharedPreferences.getBoolean(ONBOARDING_COMPLETED, false)) {
+        if (!Settings.isOnboardingCompleted(this)) {
             startActivity(Intent(this, OnboardingActivity::class.java))
             finish()
         }
