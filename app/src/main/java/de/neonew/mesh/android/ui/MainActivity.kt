@@ -2,9 +2,6 @@ package de.neonew.mesh.android.ui
 
 import android.graphics.PorterDuff
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN
@@ -26,7 +23,8 @@ class MainActivity : AppCompatActivity() {
             false -> setCompatiblity(R.string.compatibility_check_failure, R.drawable.ic_warn, R.color.failure)
         }
 
-        pager.adapter = TabPagerAdapter(supportFragmentManager)
+        val pages = listOf(FragmentPage("Wifi", { WifiTab() }), FragmentPage("Olsr", { OlsrTab() }))
+        pager.adapter = FragmentPagerAdapter(supportFragmentManager, pages)
         tab_layout.setupWithViewPager(pager)
     }
 
@@ -53,28 +51,6 @@ class MainActivity : AppCompatActivity() {
         // Used to load the 'native-lib' library on application startup.
         init {
             System.loadLibrary("native-lib")
-        }
-    }
-
-    inner class TabPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
-        override fun getItem(position: Int): Fragment? {
-            return when (position) {
-                0 -> WifiTab()
-                1 -> OlsrTab()
-                else -> null
-            }
-        }
-
-        override fun getCount(): Int {
-            return 2
-        }
-
-        override fun getPageTitle(position: Int): CharSequence? {
-            return when (position) {
-                0 -> "Wifi"
-                1 -> "Olsr"
-                else -> null
-            }
         }
     }
 }
