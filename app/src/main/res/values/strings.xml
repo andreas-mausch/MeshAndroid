@@ -13,4 +13,13 @@
     <string name="force_kill_olsrd">Force Kill</string>
     <string name="compatibility_check_success">Your phone is compatible with MeshAndroid.</string>
     <string name="compatibility_check_failure">Sorry, but your phone is not supported. :(</string>
+    <string name="onboarding_description">Welcome to Mesh. With this App, you can create your own network between different phones. […]</string>
+    <string name="onboarding_root_description">This App requires root access. Please make sure your phone is rooted. Click the button below to test if the app
+        can execute commands as root.
+    </string>
+    <string name="onboarding_root_check">Check root access</string>
+    <string name="onboarding_root_success">Success</string>
+    <string name="onboarding_root_error">Error</string>
+    <string name="next"><![CDATA[Next >]]></string>
+    <string name="done">Done</string>
 </resources>
