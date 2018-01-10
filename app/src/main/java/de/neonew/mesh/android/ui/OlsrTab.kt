@@ -73,10 +73,15 @@ class OlsrTab : Fragment() {
 
     fun update() {
         olsrd_running.text = Olsrd.isRunning().toString()
-        Olsrd.getNeighbors {
-            neighborsAdapter.clear()
-            neighborsAdapter.addAll(it)
-            neighborsAdapter.notifyDataSetChanged()
+
+        doAsync {
+            Olsrd.getNeighbors { neighbors ->
+                uiThread {
+                    neighborsAdapter.clear()
+                    neighborsAdapter.addAll(neighbors)
+                    neighborsAdapter.notifyDataSetChanged()
+                }
+            }
         }
     }
 
