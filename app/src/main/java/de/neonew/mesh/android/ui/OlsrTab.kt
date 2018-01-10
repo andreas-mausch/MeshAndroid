@@ -56,19 +56,16 @@ class OlsrTab : Fragment() {
                         { exitCode, output -> uiThread { toast("Ping to ${item} failed with ${exitCode}") } })
             }
         }
-
-        handler.post(updateRunnable)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        handler.removeCallbacks(updateRunnable);
     }
 
     override fun onResume() {
         super.onResume()
+        handler.post(updateRunnable)
+    }
 
-        update()
+    override fun onPause() {
+        super.onPause()
+        handler.removeCallbacks(updateRunnable);
     }
 
     fun update() {
