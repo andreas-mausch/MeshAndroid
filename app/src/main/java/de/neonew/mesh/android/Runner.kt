@@ -7,13 +7,22 @@ class Runner {
 
     companion object {
         fun runCommand(command: Array<String>): String {
-            val process = Runtime.getRuntime().exec(command)
-            val returnValue = process.waitFor()
-            val output = IOUtils.toString(process.inputStream)
-            if (returnValue != 0) {
-                throw IllegalStateException("command failed: $command; ret: $returnValue; output: $output")
-            }
+            var output = ""
+            runCommand(command,
+                    { o -> output = o },
+                    { exitCode, o -> throw IllegalStateException("command failed: $command; ret: $exitCode; output: $o") })
             return output
+        }
+
+        fun runCommand(command: Array<String>, success: (String) -> Unit, failure: (Int, String) -> Unit) {
+            val process = Runtime.getRuntime().exec(command)
+            val exitCode = process.waitFor()
+            val output = IOUtils.toString(process.inputStream)
+            if (exitCode == 0) {
+                success(output)
+            } else {
+                failure(exitCode, output)
+            }
         }
 
         fun runAsRoot(command: String): String = runCommand(arrayOf("su", "-c", command))

@@ -5,11 +5,11 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import de.neonew.mesh.android.R
 import de.neonew.mesh.android.Settings
 import de.neonew.mesh.android.WifiAdhoc.Companion.startMesh
 import kotlinx.android.synthetic.main.wifi_tab.*
+import org.jetbrains.anko.support.v4.longToast
 import java.io.IOException
 
 class WifiTab : Fragment() {
@@ -26,7 +26,7 @@ class WifiTab : Fragment() {
             try {
                 startMesh(Settings.getSsid(context), Settings.getFrequency(context), Settings.getBssid(context), Settings.getIP(context), Settings.getSubnetmask(context))
             } catch (e: IOException) {
-                Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
+                longToast(e.message!!)
             } finally {
                 val wifi_status = childFragmentManager.findFragmentById(R.id.wifi_status) as WifiStatusFragment
                 wifi_status.update()

@@ -8,8 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import de.neonew.mesh.android.Olsrd
+import de.neonew.mesh.android.Ping
 import de.neonew.mesh.android.R
+import de.neonew.mesh.android.Runner
 import kotlinx.android.synthetic.main.olsr_tab.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.uiThread
 
 
 class OlsrTab : Fragment() {
@@ -43,8 +48,16 @@ class OlsrTab : Fragment() {
         neighborsAdapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, emptyList<String>().toMutableList())
         olsrd_neighbors.adapter = neighborsAdapter
 
-        handler.post(updateRunnable)
+        olsrd_neighbors.setOnItemClickListener { parent, view, position, id ->
+            val item = olsrd_neighbors.getItemAtPosition(position).toString()
+            doAsync {
+                Runner.runCommand(arrayOf("ping", "-c", "1", item),
+                        { ping -> uiThread { toast("Ping to ${item} took ${Ping(ping).getMs()} ms") } },
+                        { exitCode, output -> uiThread { toast("Ping to ${item} failed with ${exitCode}") } })
+            }
+        }
 
+        handler.post(updateRunnable)
     }
 
     override fun onDestroyView() {

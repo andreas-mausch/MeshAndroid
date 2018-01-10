@@ -80,3 +80,19 @@ class IfconfigTest {
         assertEquals("255.255.0.0", ifconfig.getMask())
     }
 }
+
+
+class PingTest {
+
+    val output = "PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.\n" +
+            "64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=53.5 ms\n" +
+            "\n" +
+            "--- 10.0.0.1 ping statistics ---\n" +
+            "1 packets transmitted, 1 received, 0% packet loss, time 0ms\n" +
+            "rtt min/avg/max/mdev = 53.589/53.589/53.589/0.000 ms"
+
+    @Test
+    fun ping() {
+        assertEquals(53, Ping(output).getMs())
+    }
+}
