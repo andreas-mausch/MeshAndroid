@@ -99,8 +99,8 @@ He has insane knowledge about mesh routing and showed me step-by-step how to set
 
 Blog posts:
 
-* [Mesh networks on Android?](http://andreas-mausch.de/blog/2017/07/20/mesh-networks-on-android.html)
-* [Samsung S4: Ad-Hoc WiFi (IBSS) on LineageOS 14.1](http://andreas-mausch.de/blog/2017/12/11/samsung-s4-adhoc-on-lineage14.1.html)
+* [Mesh networks on Android?](https://andreas-mausch.de/blog/2017/07/20/mesh-networks-on-android/)
+* [Samsung S4: Ad-Hoc WiFi (IBSS) on LineageOS 14.1](https://andreas-mausch.de/blog/2017/12/11/samsung-s4-adhoc-on-lineage14.1/)
 
 ### bcmdhd vs brcmfmac
 
