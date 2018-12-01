@@ -18,14 +18,14 @@ class RootAccessFragment : Fragment() {
         return inflater.inflate(R.layout.onboarding_root_access, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         check_root.setOnClickListener {
             try {
                 Runner.runAsRoot("ls")
                 root_result.text = getString(R.string.onboarding_root_success)
-                root_result.setTextColor(ContextCompat.getColor(activity, R.color.success))
+                root_result.setTextColor(ContextCompat.getColor(activity!!, R.color.success))
 
                 onboardingActivity().enableNextPage(true)
             } catch (e: Exception) {
@@ -33,7 +33,7 @@ class RootAccessFragment : Fragment() {
                     is IllegalStateException,
                     is IOException -> {
                         root_result.text = getString(R.string.onboarding_root_error, e.message)
-                        root_result.setTextColor(ContextCompat.getColor(activity, R.color.failure))
+                        root_result.setTextColor(ContextCompat.getColor(activity!!, R.color.failure))
 
                         onboardingActivity().enableNextPage(false)
                     }

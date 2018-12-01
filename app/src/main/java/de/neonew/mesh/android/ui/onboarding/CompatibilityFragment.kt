@@ -18,7 +18,7 @@ class CompatibilityFragment : Fragment() {
         return inflater.inflate(R.layout.onboarding_compatibility, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         when (runCompatiblityCheck()) {
@@ -34,8 +34,8 @@ class CompatibilityFragment : Fragment() {
     private fun setCompatiblity(text: Int, icon: Int, color: Int) {
         compatibility_check.text = getString(text)
 
-        val drawable = ContextCompat.getDrawable(activity, icon)
-        drawable.setColorFilter(ContextCompat.getColor(activity, color), PorterDuff.Mode.MULTIPLY)
+        val drawable = ContextCompat.getDrawable(activity!!, icon)
+        drawable?.setColorFilter(ContextCompat.getColor(activity!!, color), PorterDuff.Mode.MULTIPLY)
         compatibility_check.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
     }
 }

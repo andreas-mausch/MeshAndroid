@@ -38,7 +38,7 @@ class Settings {
 
         private fun getString(context: Context, key: String): String {
             val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-            return sharedPreferences.getString(key, "")
+            return sharedPreferences.getString(key, "")!!
         }
 
         private fun setString(context: Context, key: String, value: String) {

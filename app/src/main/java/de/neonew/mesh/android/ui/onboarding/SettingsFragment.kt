@@ -18,20 +18,20 @@ class SettingsFragment : Fragment() {
         return inflater.inflate(R.layout.onboarding_settings, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Settings.setSsid(context, "MeshAndroid")
-        Settings.setFrequency(context, "2412")
-        Settings.setBssid(context, "02:11:22:33:44:55")
-        Settings.setIP(context, generateIP())
-        Settings.setSubnetmask(context, "255.0.0.0")
+        Settings.setSsid(context!!, "MeshAndroid")
+        Settings.setFrequency(context!!, "2412")
+        Settings.setBssid(context!!, "02:11:22:33:44:55")
+        Settings.setIP(context!!, generateIP())
+        Settings.setSubnetmask(context!!, "255.0.0.0")
 
-        onboarding_settings_ssid.text = Settings.getSsid(context)
-        onboarding_settings_frequency.text = Settings.getFrequency(context)
-        onboarding_settings_bssid.text = Settings.getBssid(context)
-        onboarding_settings_ip.text = Settings.getIP(context)
-        onboarding_settings_subnetmask.text = Settings.getSubnetmask(context)
+        onboarding_settings_ssid.text = Settings.getSsid(context!!)
+        onboarding_settings_frequency.text = Settings.getFrequency(context!!)
+        onboarding_settings_bssid.text = Settings.getBssid(context!!)
+        onboarding_settings_ip.text = Settings.getIP(context!!)
+        onboarding_settings_subnetmask.text = Settings.getSubnetmask(context!!)
     }
 
     private fun generateIP(): String {

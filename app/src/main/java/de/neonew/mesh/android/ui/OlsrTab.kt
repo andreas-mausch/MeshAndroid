@@ -27,11 +27,11 @@ class OlsrTab : Fragment() {
         return inflater.inflate(R.layout.olsr_tab, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         olsrd_run.setOnClickListener {
-            Olsrd().run(context)
+            Olsrd().run(context!!)
             update()
         }
 
@@ -45,15 +45,15 @@ class OlsrTab : Fragment() {
             update()
         }
 
-        neighborsAdapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, emptyList<String>().toMutableList())
+        neighborsAdapter = ArrayAdapter(context!!, android.R.layout.simple_list_item_1, emptyList<String>().toMutableList())
         olsrd_neighbors.adapter = neighborsAdapter
 
-        olsrd_neighbors.setOnItemClickListener { parent, view, position, id ->
+        olsrd_neighbors.setOnItemClickListener { _, _, position, _ ->
             val item = olsrd_neighbors.getItemAtPosition(position).toString()
             doAsync {
                 Runner.runCommand(arrayOf("ping", "-c", "1", item),
                         { ping -> uiThread { toast("Ping to ${item} took ${Ping(ping).getMs()} ms") } },
-                        { exitCode, output -> uiThread { toast("Ping to ${item} failed with ${exitCode}") } })
+                        { exitCode, _ -> uiThread { toast("Ping to ${item} failed with ${exitCode}") } })
             }
         }
     }

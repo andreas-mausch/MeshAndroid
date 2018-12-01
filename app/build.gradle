@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "de.neonew.mesh.android"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -31,20 +31,24 @@ android {
     }
 }
 
+ext {
+    supportLibraryVersion = '28.0.0'
+}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.android.support:design:$android.buildToolsVersion"
-    compile "com.android.support:appcompat-v7:$android.buildToolsVersion"
-    compile "com.android.support:support-v13:$android.buildToolsVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:support-v13:$supportLibraryVersion"
 
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'org.apache.directory.studio:org.apache.commons.io:2.4'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.10"
-    compile 'com.github.kittinunf.fuel:fuel-android:1.12.0'
-    compile 'org.jetbrains.anko:anko:0.10.4'
-    compile 'org.jetbrains.anko:anko-coroutines:0.10.4'
-    testCompile 'junit:junit:4.12'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'org.apache.directory.studio:org.apache.commons.io:2.4'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.0"
+    implementation 'com.github.kittinunf.fuel:fuel-android:1.12.0'
+    implementation 'org.jetbrains.anko:anko:0.10.4'
+    implementation 'org.jetbrains.anko:anko-coroutines:0.10.4'
+    testImplementation 'junit:junit:4.12'
 }

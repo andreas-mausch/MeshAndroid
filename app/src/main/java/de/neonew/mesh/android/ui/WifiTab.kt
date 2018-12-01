@@ -19,12 +19,12 @@ class WifiTab : Fragment() {
         return inflater.inflate(R.layout.wifi_tab, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         start_mesh.setOnClickListener {
             try {
-                startMesh(Settings.getSsid(context), Settings.getFrequency(context), Settings.getBssid(context), Settings.getIP(context), Settings.getSubnetmask(context))
+                startMesh(Settings.getSsid(context!!), Settings.getFrequency(context!!), Settings.getBssid(context!!), Settings.getIP(context!!), Settings.getSubnetmask(context!!))
             } catch (e: IOException) {
                 longToast(e.message!!)
             } finally {

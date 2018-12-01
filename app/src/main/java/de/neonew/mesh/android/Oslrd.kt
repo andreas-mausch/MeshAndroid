@@ -16,7 +16,7 @@ class Olsrd {
         }
 
         fun getNeighbors(callback: (List<String>) -> Unit) {
-            "http://localhost:9090/all".httpGet().responseJson { request, response, result ->
+            "http://localhost:9090/all".httpGet().responseJson { _, _, result ->
                 when (result) {
                     is Result.Failure -> {
                         callback(emptyList())

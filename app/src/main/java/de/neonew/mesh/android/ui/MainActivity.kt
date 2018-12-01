@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
 
         window.setSoftInputMode(SOFT_INPUT_STATE_HIDDEN)
 
-        val pages = listOf(FragmentPage("Wifi", { WifiTab() }), FragmentPage("Olsr", { OlsrTab() }))
+        val pages = listOf(
+                FragmentPage("Wifi") { WifiTab() },
+                FragmentPage("Olsr") { OlsrTab() })
         pager.adapter = FragmentPagerAdapter(supportFragmentManager, pages)
         tab_layout.setupWithViewPager(pager)
     }
